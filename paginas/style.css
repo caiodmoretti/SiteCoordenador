@@ -1,0 +1,67 @@
+/* Reset CSS */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial, sans-serif;
+}
+
+header {
+   background-color: #004d40;
+   color: #fff;
+   padding: 25px;
+   
+}
+
+nav {
+   background-color: #004d40;
+   display: flex;
+   justify-content: space-between;
+   max-width: 350px; /* Definindo a largura máxima */
+   margin: 0 auto; /* Centralizando a navegação na página */
+}
+
+nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 0 10px;
+   padding: 10px 15px; /* Ajuste no padding */
+   margin: 0 2px; /* Ajuste na margem */
+}
+
+main {
+   display: flex;
+   justify-content: space-between;
+   margin: 100px;
+}
+
+body {
+   font-family: Helvetica, Arial, sans-serif; /* Mudando a fonte para Helvetica */
+}
+.row {
+   flex-basis: 50%;
+}
+
+.post-text-box {
+   border: 1px solid #ccc;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+footer {
+   background-color: #004d40; /* Mudando o fundo para verde escuro */
+   display: flex;
+   color: #fff;
+   padding: 25px;
+   text-align: center;
+}
+
+footer a {
+   color: #fff;
+   text-decoration: none;
+   margin: 0 10px;
+   
+}
