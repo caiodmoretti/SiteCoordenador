@@ -102,3 +102,9 @@ select {
 input {
    font-size: 16px;
 }
+
+input[type="checkbox"] {
+      transform: scale(1.5); /* Aumenta o tamanho em 1.5 vezes */
+      margin-right: 10px; /* Adiciona um espaço entre as checkboxes */
+      float: right;
+}
