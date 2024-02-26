@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alocar Sala de Aula</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2; /* cor de fundo levemente diferente */
+        }
+    </style>
+</head>
+<body>
+    <h1>Alocar Sala de Aula para Disciplinas</h1>
+
+    <label for="disciplina">Selecione uma disciplina:</label>
+    <select id="disciplina" onchange="mostrarInformacoesDisciplina()">
+        <option value="">Selecione...</option>
+        <option value="BSI002">Álgebra Linear e Geometria Analítica (BSI002)</option>
+        <option value="BSI013">Técnicas de Programação (BSI013)</option>
+        <option value="BSI019">Segurança da Informação (BSI019)</option>
+        <option value="BSI009">Cálculo I (BSI009)</option>
+        <option value="BSI012">Administração de Banco de Dados (BSI012)</option>
+        <!-- Adicione outras disciplinas conforme necessário -->
+    </select>
+
+    <h2 id="tituloDisciplina"></h2>
+    <table id="tabelaDisciplina" style="display: none;">
+        <thead>
+            <tr>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Sala Atual</th>
+                <th>Opções Temporário/Definitivo</th>
+                <th>Salas Disponíveis</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyDisciplina">
+        </tbody>
+    </table>
+
+    <script>
+        function mostrarInformacoesDisciplina() {
+            var disciplina = document.getElementById("disciplina").value;
+            var tituloDisciplina = document.getElementById("tituloDisciplina");
+            var tabelaDisciplina = document.getElementById("tabelaDisciplina");
+
+            if (disciplina === "BSI002") {
+                tituloDisciplina.textContent = "Horários e Salas da Disciplina: Álgebra Linear e Geometria Analítica (BSI002)";
+                tabelaDisciplina.style.display = "table";
+
+                var tbodyDisciplina = document.getElementById("tbodyDisciplina");
+                tbodyDisciplina.innerHTML = ""; // Limpa o conteúdo atual da tabela
+
+                // Adiciona informações para a disciplina Álgebra Linear e Geometria Analítica (BSI002) na segunda-feira
+                var horarios = ["18:20", "19:10", "20:10", "21:00", "21:50"];
+                var salaAtual = "A305";
+                var salasDisponiveis = ["[E01]", "[E02]"];
+
+                for (var i = 0; i < horarios.length; i++) {
+                    var tr = document.createElement("tr");
+
+                    var tdDia = document.createElement("td");
+                    tdDia.textContent = "Segunda";
+                    tr.appendChild(tdDia);
+
+                    var tdHorario = document.createElement("td");
+                    tdHorario.textContent = horarios[i];
+                    tr.appendChild(tdHorario);
+
+                    var tdSalaAtual = document.createElement("td");
+                    tdSalaAtual.textContent = salaAtual;
+                    tr.appendChild(tdSalaAtual);
+
+                    var tdOpcoes = document.createElement("td");
+                    tdOpcoes.innerHTML = '<input type="radio" id="temporario" name="opcoes" value="temporario">' +
+                                         '<label for="temporario">Temporário</label>' +
+                                         '<input type="radio" id="definitivo" name="opcoes" value="definitivo">' +
+                                         '<label for="definitivo">Definitivo</label>';
+                    tr.appendChild(tdOpcoes);
+
+                    var tdSalasDisponiveis = document.createElement("td");
+                    var selectSalas = document.createElement("select");
+                    for (var j = 0; j < salasDisponiveis.length; j++) {
+                        var optionSala = document.createElement("option");
+                        optionSala.value = salasDisponiveis[j];
+                        optionSala.textContent = salasDisponiveis[j];
+                        selectSalas.appendChild(optionSala);
+                    }
+                    tdSalasDisponiveis.appendChild(selectSalas);
+
+                    var btnTrocarSala = document.createElement("button");
+                    btnTrocarSala.textContent = "Atualizar Sala";
+                    btnTrocarSala.onclick = function() {
+                        var novaSala = this.previousSibling.value;
+                        this.parentNode.previousSibling.textContent = novaSala;
+                    };
+                    tdSalasDisponiveis.appendChild(document.createTextNode("\u00A0\u00A0")); // Adiciona dois espaços em branco
+                    tdSalasDisponiveis.appendChild(btnTrocarSala);
+
+                    tr.appendChild(tdSalasDisponiveis);
+
+                    tbodyDisciplina.appendChild(tr);
+                }
+            } else if (disciplina === "BSI013") {
+                tituloDisciplina.textContent = "Horários e Salas da Disciplina: Técnicas de Programação (BSI013)";
+                tabelaDisciplina.style.display = "table";
+
+                var tbodyDisciplina = document.getElementById("tbodyDisciplina");
+                tbodyDisciplina.innerHTML = ""; // Limpa o conteúdo atual da tabela
+
+                // Adiciona informações para a disciplina Técnicas de Programação (BSI013) na terça e quarta-feira
+                var horarios = ["18:20", "19:10", "20:10", "21:50"];
+                var dias = ["Terça", "Terça", "Quarta", "Quarta"];
+                var salaAtual = ["E08", "E08", "E09", "E09"];
+                var salasDisponiveis = [["[E07]"], ["[E07]"], ["[E10]"], ["[E10]"]];
+
+                for (var i = 0; i < horarios.length; i++) {
+                    var tr = document.createElement("tr");
+
+                    var tdDia = document.createElement("td");
+                    tdDia.textContent = dias[i];
+                    tr.appendChild(tdDia);
+
+                    var tdHorario = document.createElement("td");
+                    tdHorario.textContent = horarios[i];
+                    tr.appendChild(tdHorario);
+
+                    var tdSalaAtual = document.createElement("td");
+                    tdSalaAtual.textContent = salaAtual[i];
+                    tr.appendChild(tdSalaAtual);
+
+                    var tdOpcoes = document.createElement("td");
+                    tdOpcoes.innerHTML = '<input type="radio" id="temporario" name="opcoes" value="temporario">' +
+                                         '<label for="temporario">Temporário</label>' +
+                                         '<input type="radio" id="definitivo" name="opcoes" value="definitivo">' +
+                                         '<label for="definitivo">Definitivo</label>';
+                    tr.appendChild(tdOpcoes);
+
+                    var tdSalasDisponiveis = document.createElement("td");
+                    var selectSalas = document.createElement("select");
+                    for (var j = 0; j < salasDisponiveis[i].length; j++) {
+                        var optionSala = document.createElement("option");
+                        optionSala.value = salasDisponiveis[i][j];
+                        optionSala.textContent = salasDisponiveis[i][j];
+                        selectSalas.appendChild(optionSala);
+                    }
+                    tdSalasDisponiveis.appendChild(selectSalas);
+
+                    var btnTrocarSala = document.createElement("button");
+                    btnTrocarSala.textContent = "Atualizar Sala";
+                    btnTrocarSala.onclick = function() {
+                        var novaSala = this.previousSibling.value;
+                        this.parentNode.previousSibling.textContent = novaSala;
+                    };
+                    tdSalasDisponiveis.appendChild(document.createTextNode("\u00A0\u00A0")); // Adiciona dois espaços em branco
+                    tdSalasDisponiveis.appendChild(btnTrocarSala);
+
+                    tr.appendChild(tdSalasDisponiveis);
+
+                    tbodyDisciplina.appendChild(tr);
+                }
+
+            } else if (disciplina === "BSI019") {
+                tituloDisciplina.textContent = "Horários e Salas da Disciplina: Segurança da Informação (BSI019)";
+                tabelaDisciplina.style.display = "table";
+
+                var tbodyDisciplina = document.getElementById("tbodyDisciplina");
+                tbodyDisciplina.innerHTML = ""; // Limpa o conteúdo atual da tabela
+
+                // Adiciona informações para a disciplina Segurança da Informação (BSI019) na terça e quarta-feira
+                var horarios = ["20:10", "21:00", "18:20", "19:10"];
+                var dias = ["Terça", "Terça", "Quarta", "Quarta"];
+                var salaAtual = ["E08", "E08", "E09", "E09"];
+                var salasDisponiveis = [["[E07]"], ["[E07]"], ["[E10]"], ["[E10]"]];
+
+                for (var i = 0; i < horarios.length; i++) {
+                    var tr = document.createElement("tr");
+
+                    var tdDia = document.createElement("td");
+                    tdDia.textContent = dias[i];
+                    tr.appendChild(tdDia);
+
+                    var tdHorario = document.createElement("td");
+                    tdHorario.textContent = horarios[i];
+                    tr.appendChild(tdHorario);
+
+                    var tdSalaAtual = document.createElement("td");
+                    tdSalaAtual.textContent = salaAtual[i];
+                    tr.appendChild(tdSalaAtual);
+
+                    var tdOpcoes = document.createElement("td");
+                    tdOpcoes.innerHTML = '<input type="radio" id="temporario" name="opcoes" value="temporario">' +
+                                         '<label for="temporario">Temporário</label>' +
+                                         '<input type="radio" id="definitivo" name="opcoes" value="definitivo">' +
+                                         '<label for="definitivo">Definitivo</label>';
+                    tr.appendChild(tdOpcoes);
+
+                    var tdSalasDisponiveis = document.createElement("td");
+                    var selectSalas = document.createElement("select");
+                    for (var j = 0; j < salasDisponiveis[i].length; j++) {
+                        var optionSala = document.createElement("option");
+                        optionSala.value = salasDisponiveis[i][j];
+                        optionSala.textContent = salasDisponiveis[i][j];
+                        selectSalas.appendChild(optionSala);
+                    }
+                    tdSalasDisponiveis.appendChild(selectSalas);
+
+                    var btnTrocarSala = document.createElement("button");
+                    btnTrocarSala.textContent = "Atualizar Sala";
+                    btnTrocarSala.onclick = function() {
+                        var novaSala = this.previousSibling.value;
+                        this.parentNode.previousSibling.textContent = novaSala;
+                    };
+                    tdSalasDisponiveis.appendChild(document.createTextNode("\u00A0\u00A0")); // Adiciona dois espaços em branco
+                    tdSalasDisponiveis.appendChild(btnTrocarSala);
+
+                    tr.appendChild(tdSalasDisponiveis);
+
+                    tbodyDisciplina.appendChild(tr);
+                }
+
+            } else if (disciplina === "BSI009") {
+                tituloDisciplina.textContent = "Horários e Salas da Disciplina: Cálculo I (BSI009)";
+                tabelaDisciplina.style.display = "table";
+
+                var tbodyDisciplina = document.getElementById("tbodyDisciplina");
+                tbodyDisciplina.innerHTML = ""; // Limpa o conteúdo atual da tabela
+
+                // Adiciona informações para a disciplina Cálculo I (BSI009) na quinta-feira
+                var horarios = ["18:20", "19:10", "20:10", "21:00"];
+                var dias = ["Quinta", "Quinta", "Quinta", "Quinta"];
+                var salaAtual = "A305";
+                var salasDisponiveis = ["[E02]", "[E05]", "[E06]"];
+
+                for (var i = 0; i < horarios.length; i++) {
+                    var tr = document.createElement("tr");
+
+                    var tdDia = document.createElement("td");
+                    tdDia.textContent = dias[i];
+                    tr.appendChild(tdDia);
+
+                    var tdHorario = document.createElement("td");
+                    tdHorario.textContent = horarios[i];
+                    tr.appendChild(tdHorario);
+
+                    var tdSalaAtual = document.createElement("td");
+                    tdSalaAtual.textContent = salaAtual;
+                    tr.appendChild(tdSalaAtual);
+
+                    var tdOpcoes = document.createElement("td");
+                    tdOpcoes.innerHTML = '<input type="radio" id="temporario" name="opcoes" value="temporario">' +
+                                         '<label for="temporario">Temporário</label>' +
+                                         '<input type="radio" id="definitivo" name="opcoes" value="definitivo">' +
+                                         '<label for="definitivo">Definitivo</label>';
+                    tr.appendChild(tdOpcoes);
+
+                    var tdSalasDisponiveis = document.createElement("td");
+                    var selectSalas = document.createElement("select");
+                    for (var j = 0; j < salasDisponiveis.length; j++) {
+                        var optionSala = document.createElement("option");
+                        optionSala.value = salasDisponiveis[j];
+                        optionSala.textContent = salasDisponiveis[j];
+                        selectSalas.appendChild(optionSala);
+                    }
+                    tdSalasDisponiveis.appendChild(selectSalas);
+
+                    var btnTrocarSala = document.createElement("button");
+                    btnTrocarSala.textContent = "Atualizar Sala";
+                    btnTrocarSala.onclick = function() {
+                        var novaSala = this.previousSibling.value;
+                        this.parentNode.previousSibling.textContent = novaSala;
+                    };
+                    tdSalasDisponiveis.appendChild(document.createTextNode("\u00A0\u00A0")); // Adiciona dois espaços em branco
+                    tdSalasDisponiveis.appendChild(btnTrocarSala);
+
+                    tr.appendChild(tdSalasDisponiveis);
+
+                    tbodyDisciplina.appendChild(tr);
+                }
+				
+				
+			}else if (disciplina === "BSI012") {
+                tituloDisciplina.textContent = "Horários e Salas da Disciplina: Administração de Banco de Dados (BSI012)";
+                tabelaDisciplina.style.display = "table";
+
+                var tbodyDisciplina = document.getElementById("tbodyDisciplina");
+                tbodyDisciplina.innerHTML = ""; // Limpa o conteúdo atual da tabela
+
+                // Adiciona informações para a disciplina Administração de Banco de Dados (BSI012) na sexta-feira
+                var horarios = ["18:20", "19:10"];
+                var dias = ["Sexta", "Sexta"];
+                var salaAtual = "E09";
+                var salasDisponiveis = ["[E10]"];
+
+                for (var i = 0; i < horarios.length; i++) {
+                    var tr = document.createElement("tr");
+
+                    var tdDia = document.createElement("td");
+                    tdDia.textContent = dias[i];
+                    tr.appendChild(tdDia);
+
+                    var tdHorario = document.createElement("td");
+                    tdHorario.textContent = horarios[i];
+                    tr.appendChild(tdHorario);
+
+                    var tdSalaAtual = document.createElement("td");
+                    tdSalaAtual.textContent = salaAtual;
+                    tr.appendChild(tdSalaAtual);
+
+                    var tdOpcoes = document.createElement("td");
+                    tdOpcoes.innerHTML = '<input type="radio" id="temporario" name="opcoes" value="temporario">' +
+                                         '<label for="temporario">Temporário</label>' +
+                                         '<input type="radio" id="definitivo" name="opcoes" value="definitivo">' +
+                                         '<label for="definitivo">Definitivo</label>';
+                    tr.appendChild(tdOpcoes);
+
+                    var tdSalasDisponiveis = document.createElement("td");
+                    var selectSalas = document.createElement("select");
+                    for (var j = 0; j < salasDisponiveis.length; j++) {
+                        var optionSala = document.createElement("option");
+                        optionSala.value = salasDisponiveis[j];
+                        optionSala.textContent = salasDisponiveis[j];
+                        selectSalas.appendChild(optionSala);
+                    }
+                    tdSalasDisponiveis.appendChild(selectSalas);
+
+                    var btnTrocarSala = document.createElement("button");
+                    btnTrocarSala.textContent = "Atualizar Sala";
+                    btnTrocarSala.onclick = function() {
+                        var novaSala = this.previousSibling.value;
+                        this.parentNode.previousSibling.textContent = novaSala;
+                    };
+                    tdSalasDisponiveis.appendChild(document.createTextNode("\u00A0\u00A0")); // Adiciona dois espaços em branco
+                    tdSalasDisponiveis.appendChild(btnTrocarSala);
+
+                    tr.appendChild(tdSalasDisponiveis);
+
+                    tbodyDisciplina.appendChild(tr);
+                }
+				
+
+            } else {
+                tituloDisciplina.textContent = "";
+                tabelaDisciplina.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
