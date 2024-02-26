@@ -108,3 +108,56 @@ input[type="checkbox"] {
       margin-right: 10px; /* Adiciona um espaço entre as checkboxes */
       float: right;
 }
+
+
+
+
+
+
+/* CSS para a página "Consultar Disciplinas" */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Faz com que o corpo da página tenha pelo menos 100% da altura da viewport */
+}
+
+.container {
+  flex: 1; /* Faz com que a div .container ocupe o espaço restante disponível */
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.container th, .container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.container th {
+  background-color: #f2f2f2;
+}
+
+.container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container tr:hover {
+  background-color: #ddd;
+}
+
+footer {
+  background-color: #004d40;
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+  margin-top: auto; /* Faz o footer ficar sempre no final da página */
+}
