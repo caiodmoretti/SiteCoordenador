@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Consultar disciplinas de um Professor</title>
+  <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+<header>   
+  <h1>Site Coordenador</h1>
+  <nav>
+     <a href=""><b>Alocar professor</b> </a>
+     <a href=""><b>Consultar Disciplinas</b></a>
+     <a href=""><b>Alocar sala</b></a>
+ </nav>
+  </header>
+
+  <div>
+    <h1>Consultar disciplinas de um professor</h1>
+    <br>
+  </div>
+
+  <label for="professor">Escolha um professor: </label>
+  <select id="professor">
+    <option value="">--Vamos lá!--</option>
+    <option value="maria">MARIA SILVA SANTOS</option>
+    <option value="joao">JOÃO OLIVEIRA SOUZA</option>
+    <option value="ana">ANA PEREIRA LIMA</option>
+    <option value="juliana">JULIANA FERREIRA OLIVEIRA</option>
+    <option value="lucas">LUCAS RODRIGUES COSTA</option>
+  </select>
+  
+  <div id="tabela"></div>
+
+<script>
+  const select = document.querySelector('select');
+  const tabela = document.getElementById('tabela');
+
+  select.onchange = setProfessor;
+
+  function setProfessor() {
+    const choice = select.value;
+    let tabelaHTML = '';
+
+    if(choice === 'maria') {
+      tabelaHTML = `
+      <div class="container"> 
+
+      <table>
+        <tr>
+          <th>Professor Associado</th>
+          <th>Disciplina</th>
+          <th>Curso</th>
+          <th>Carga Horária</th>
+
+        </tr>
+        <tr>
+          <td>MARIA SILVA SANTOS</td>
+          <td>Álgebra Linear e Geometria Analítica BSI002</td>
+          <td>Engenharia da Computação</td>
+          <td>60 horas</td>
+        </tr>
+        <tr>
+            <td>MARIA SILVA SANTOS</td> 
+            <td>Técnicas de Programação BSI013</td> 
+            <td>Sistemas de Informação</td>
+            <td>80 horas</td> 
+        </tr>
+
+        <tr>
+          <td>MARIA SILVA SANTOS</td>
+          <td>Segurança da Informação BSI019</td>
+          <td>Sistemas de Informação</td>
+          <td>50 horas</td>
+        </tr>
+
+        <tr>
+            <td>MARIA SILVA SANTOS</td>
+            <td>Cálculo I BSI009</td>
+            <td>Engenharia da Computação</td>
+            <td>70 horas</td>
+        </tr>
+
+        <tr>
+            <td>MARIA SILVA SANTOS</td>
+            <td>Administração de Banco de Dados BSI012</td>
+            <td>Sistemas de Informação</td>
+            <td>60 horas</td>
+        </tr>
+
+        <table>
+            <tr>
+              <th>Carga horária total: 320 horas </th>
+            
+            </tr>
+        </table>
+    </div>
+      `;
+    } else if(choice === 'joao') {
+      tabelaHTML = `
+      <div class="container">
+      <table>
+        <tr>
+          <th>Professor Associado</th>
+          <th>Disciplina</th>
+          <th>Curso</th>
+          <th>Carga Horária</th>
+
+        </tr>
+        <tr>
+          <td>JOÃO OLIVEIRA SOUZA</td>
+          <td>Álgebra Linear e Geometria Analítica BSI002</td>
+          <td>Engenharia da Computação</td>
+          <td>60 horas</td>
+        </tr>
+        <tr>
+            <td>JOÃO OLIVEIRA SOUZA</td> 
+            <td>Técnicas de Programação BSI013</td> 
+            <td>Sistemas de Informação</td>
+            <td>80 horas</td> 
+        </tr>
+
+        <tr>
+          <td>JOÃO OLIVEIRA SOUZA</td>
+          <td>Segurança da Informação BSI019</td>
+          <td>Sistemas de Informação</td>
+          <td>50 horas</td>
+        </tr>
+
+        <tr>
+            <td>JOÃO OLIVEIRA SOUZA</td>
+            <td>Cálculo I BSI009</td>
+            <td>Engenharia da Computação</td>
+            <td>70 horas</td>
+        </tr>
+
+        <table>
+            <tr>
+              <th>Carga horária total: 260 horas </th>
+            
+        
+            </tr>
+        </table>
+        </div>
+      `;
+} else if(choice === 'ana') {
+      tabelaHTML = `
+      <div class="container">
+      <table>
+        <tr>
+          <th>Professor Associado</th>
+          <th>Disciplina</th>
+          <th>Curso</th>
+          <th>Carga Horária</th>
+
+        </tr>
+        <tr>
+          <td>ANA PEREIRA LIMA</td>
+          <td>Álgebra Linear e Geometria Analítica BSI002</td>
+          <td>Engenharia da Computação</td>
+          <td>60 horas</td>
+        </tr>
+        <tr>
+            <td>ANA PEREIRA LIMA</td> 
+            <td>Técnicas de Programação BSI013</td> 
+            <td>Sistemas de Informação</td>
+            <td>80 horas</td> 
+        </tr>
+
+        <tr>
+          <td>ANA PEREIRA LIMA</td>
+          <td>Segurança da Informação BSI019</td>
+          <td>Sistemas de Informação</td>
+          <td>50 horas</td>
+        </tr>
+
+        <table>
+            <tr>
+              <th>Carga horária total: 190 horas </th>
+            
+            </tr>
+        </table>
+
+      </table>
+      </div>
+      `;
+     } else if(choice === 'juliana') {
+      tabelaHTML = `
+      <div class="container">
+      <table>
+        <tr>
+          <th>Professor Associado</th>
+          <th>Disciplina</th>
+          <th>Curso</th>
+          <th>Carga Horária</th>
+
+        </tr>
+       
+        <tr>
+            <td>JULIANA FERREIRA OLIVEIRA</td> 
+            <td>Técnicas de Programação BSI013</td> 
+            <td>Sistemas de Informação</td>
+            <td>80 horas</td> 
+        </tr>
+
+        <tr>
+          <td>JULIANA FERREIRA OLIVEIRA</td>
+          <td>Segurança da Informação BSI019</td>
+          <td>Sistemas de Informação</td>
+          <td>50 horas</td>
+        </tr>
+
+
+
+        <tr>
+            <td>JULIANA FERREIRA OLIVEIRA</td>
+            <td>Administração de Banco de Dados BSI012</td>
+            <td>Sistemas de Informação</td>
+            <td>60 horas</td>
+        </tr>
+
+        <table>
+            <tr>
+              <th>Carga horária total: 190 horas </th>
+            
+            </tr>
+        </table>
+      </table>
+      </div>
+      `;
+    } else if(choice === 'lucas') {
+      tabelaHTML = `
+      <div class="container">
+      <table>
+        <tr>
+          <th>Professor Associado</th>
+          <th>Disciplina</th>
+          <th>Curso</th>
+          <th>Carga Horária</th>
+
+        </tr>
+        <tr>
+          <td>LUCAS RODRIGUES COSTA </td>
+          <td>Álgebra Linear e Geometria Analítica BSI002</td>
+          <td>Engenharia da Computação</td>
+          <td>60 horas</td>
+        </tr>
+        
+        <tr>
+            <td>LUCAS RODRIGUES COSTA</td>
+            <td>Cálculo I BSI009</td>
+            <td>Engenharia da Computação</td>
+            <td>70 horas</td>
+        </tr>
+
+        <table>
+            <tr>
+              <th>Carga horária total: 130 horas </th>
+            
+            </tr>
+        </table>
+
+      </table>
+    </div>
+      `;
+    } 
+   
+    tabela.innerHTML = tabelaHTML;
+  }
+</script>
+<footer>
+    <a href="#">Contato</a>
+    <a href="#">FAQ</a>
+ </footer>
+
+</body>
+</html>
