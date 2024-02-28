@@ -21,21 +21,37 @@ nav {
    display: flex;
    justify-content: space-between;
    max-width: 350px; /* Definindo a largura máxima */
-   margin: 0 auto; /* Centralizando a navegação na página */
+   align-items: center; /* Centralizando verticalmente os itens */
+   margin-left: 100px;
 }
 
 nav a {
    color: #fff;
    text-decoration: none;
-   padding: 0 10px;
+   padding: 0 0px;
    padding: 10px 15px; /* Ajuste no padding */
-   margin: 0 2px; /* Ajuste na margem */
+   margin: 0 0px; /* Ajuste na margem */
 }
 
+nav button {
+  background-color: #ffffff; /* Cor de fundo */
+  color: rgb(37, 37, 37); /* Cor do texto */
+  border: none; /* Remove a borda */
+  padding: 10px 10px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor do mouse */
+  border-radius: 5px; /* Borda arredondada */
+  transition: background-color 0.3s; /* Transição suave de cor */
+  white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
+}
+
+nav button:hover {
+  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
 main {
    display: flex;
    justify-content: space-between;
-   margin: 100px;
+   margin-left: 100px;
+   margin-top: 30px;
 }
 
 body {
