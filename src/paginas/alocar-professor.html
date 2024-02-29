@@ -6,19 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alocação de Professor</title>
   <link rel="stylesheet" href="../assets/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-  <header>   
-    <h1 style="margin-left: 115px ;">Site Coordenador</h1>
+  <header>
+    <div style="padding: 0.5%;">
+      <h1 style="margin-left: 125px ;">Site Coordenador</h1>
+    </div>   
+
     <nav>
-      <a href="../paginas/home.html"><button type="button">Início</button></a>
-      <a href="../paginas/alocar-professor.html"><button type="button">Alocar professor</button></a>
-      <a href="../paginas/consultar-professor.html"><button type="button">Consultar professor</button></a>
-      <a href="../paginas/consultar-disciplinas.html"><button type="button">Consultar disciplinas</button></a>
-      <a href="../paginas/consultar-salas.html"><button type="button">Consultar uso de sala</button></a>
-      <a href="../paginas/alocar-salas.html"><button type="button">Alocar sala de aula</button></a>
+      <div>
+        <div class="button">
+          <a href="../paginas/home.html"><button class=""><i class="fas fa-home" aria-hidden="true" style="margin-right: 5px;"></i>Início </button></a>
+          <div class="dropdown-content">
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class=""><i class="fa fa-search" aria-hidden="true" style="margin-right: 5px;"></i>Consultar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+        <div class="dropdown-content">
+          <a href="../paginas/consultar-professor.html">Professor</a>
+          <a href="../paginas/consultar-disciplinas.html">Disciplinas</a>
+          <a href="../paginas/consultar-salas.html">Salas</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class=""><i class="fas fa-edit" aria-hidden="true" style="margin-right: 5px;"></i>Alocar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+        <div class="dropdown-content">
+          <a href="../paginas/alocar-professor.html">Professor</a>
+          <a href="../paginas/alocar-salas.html">Salas</a>
+        </div>
+      </div>
+
     </nav>
+    
   </header>
         <div class="container">
             <h1>Alocar Professor para Disciplina</h1>

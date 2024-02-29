@@ -177,3 +177,55 @@ footer {
   text-align: center;
   margin-top: auto; /* Faz o footer ficar sempre no final da página */
 }
+/* Estilos para o dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilos para os botões do dropdown */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para o conteúdo do dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 35px; /* Adiciona um espaço entre o botão e o menu suspenso */
+}
+
+/* Mostrar o conteúdo do dropdown quando o botão é clicado/hovered */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Estilizar os links dentro do dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Mudar a cor de fundo do link ao passar o mouse sobre ele */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilizar o link de início */
+nav a {
+  padding: 16px;
+  text-decoration: none;
+  color: black;
+}
+
