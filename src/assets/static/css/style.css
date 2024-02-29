@@ -1,0 +1,179 @@
+/* Reset CSS */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial, sans-serif;
+}
+
+header {
+   background-color: #004d40;
+   color: #fff;
+   padding: 25px;
+   
+}
+
+nav {
+   background-color: #004d40;
+   display: flex;
+   justify-content: space-between;
+   max-width: 350px; /* Definindo a largura máxima */
+   align-items: center; /* Centralizando verticalmente os itens */
+   margin-left: 100px;
+}
+
+nav a {
+   color: #fff;
+   text-decoration: none;
+   padding: 0 0px;
+   padding: 10px 15px; /* Ajuste no padding */
+   margin: 0 0px; /* Ajuste na margem */
+}
+
+nav button {
+  background-color: #ffffff; /* Cor de fundo */
+  color: rgb(37, 37, 37); /* Cor do texto */
+  border: none; /* Remove a borda */
+  padding: 10px 10px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor do mouse */
+  border-radius: 5px; /* Borda arredondada */
+  transition: background-color 0.3s; /* Transição suave de cor */
+  white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
+}
+
+nav button:hover {
+  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+main {
+   display: flex;
+   justify-content: space-between;
+   margin-left: 100px;
+   margin-top: 30px;
+}
+
+body {
+   font-family: Helvetica, Arial, sans-serif; /* Mudando a fonte para Helvetica */
+}
+.row {
+   flex-basis: 50%;
+}
+
+.post-text-box {
+   border: 1px solid #ccc;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+footer {
+   background-color: #004d40; /* Mudando o fundo para verde escuro */
+   display: flex;
+   color: #fff;
+   padding: 25px;
+   text-align: center;
+}
+
+footer a {
+   color: #fff;
+   text-decoration: none;
+   margin: 0 10px;
+   
+}
+
+form {
+  margin: 0 auto;
+}
+
+label,
+select {
+  display: block;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  float: right;
+  font-size: 14px;
+}
+
+select {
+   border: 2px solid #ccc;
+   width: 300px; 
+   padding: 10px; 
+   font-size: 14px; 
+}
+
+input {
+   font-size: 16px;
+}
+
+input[type="checkbox"] {
+      transform: scale(1.5); /* Aumenta o tamanho em 1.5 vezes */
+      margin-right: 10px; /* Adiciona um espaço entre as checkboxes */
+      float: right;
+}
+
+
+
+
+
+
+/* CSS para a página "Consultar Disciplinas" */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Faz com que o corpo da página tenha pelo menos 100% da altura da viewport */
+}
+
+.container {
+  flex: 1; /* Faz com que a div .container ocupe o espaço restante disponível */
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.container th, .container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.container th {
+  background-color: #f2f2f2;
+}
+
+.container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container tr:hover {
+  background-color: #ddd;
+}
+
+footer {
+  background-color: #004d40;
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+  margin-top: auto; /* Faz o footer ficar sempre no final da página */
+}

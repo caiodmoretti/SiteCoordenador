@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar Disciplinas</title>
+    <link rel="stylesheet" href="../assets/static/css/style.css">
+ 
+  </head>
+
+  <body>
+    <header>   
+      <h1 style="margin-left: 115px ;">Site Coordenador</h1>
+      <nav>
+        <a href="../paginas/home.html"><button type="button">Início</button></a>
+        <a href="../paginas/alocar-professor.html"><button type="button">Alocar professor</button></a>
+        <a href="../paginas/consultar-professor.html"><button type="button">Consultar professor</button></a>
+        <a href="../paginas/consultar-disciplinas.html"><button type="button">Consultar disciplinas</button></a>
+        <a href="../paginas/consultar-salas.html"><button type="button">Consultar uso de sala</button></a>
+        <a href="../paginas/alocar-salas.html"><button type="button">Alocar sala de aula</button></a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1 style="text-align: center;">Consultar disponibilidade de sala</h1>
+      <div class="container" style="margin: 20px auto; max-width: 800px;">
+        <!-- Selecionar uma data -->
+        <label for="data" style="display: inline-block; margin-right: 10px;">Escolha uma data:</label>
+        <input type="date" id="data">
+        <!-- Botão para consultar a disponibilidade -->
+        <button onclick="consultarDisponibilidade()">Consultar</button>
+      </div>
+      <div class="post-text-box">
+        <h2 style="text-align: center;">Escolha uma data acima para consultar a disponibilidade de salas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Horário</th>
+              <th>Sala A101</th>
+              <th>Sala B102</th>
+              <th>Sala C103</th>
+              <th>Sala E104</th>
+              <th>Sala G105</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaDisponibilidade">
+            <!-- As linhas da tabela serão preenchidas dinamicamente após a consulta -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <a href="#">Contato</a>
+      <a href="#">FAQ</a>
+    </footer>
+    <script>
+      // Função para consultar a disponibilidade de salas
+      function consultarDisponibilidade() {
+        // Obter a data selecionada
+        var dataSelecionada = document.getElementById("data").value;
+      
+        // Aqui você deve implementar a lógica para consultar a disponibilidade de salas
+        // Por enquanto, vamos apenas preencher a tabela com horários e salas ocupadas
+        var horarios = ["18:20", "19:10", "20:10", "21:00", "21:50"];
+        var salas = ["A101", "B102", "C103", "E104", "G105"];
+        var ocupacao = [
+          ["Cálculo", "-", "Álg. Linear e Geo. Analí.", "-", "-"],
+          ["Cálculo", "-", "Álg. Linear e Geo. Analí.", "Gerência de Projeto", "Téc. de Prog."],
+          ["Cálculo", "-", "Álg. Linear e Geo. Analí.", "Gerência de Projeto", "Téc. de Prog."],
+          ["-", "Sistemas Oper.", "Sistemas Oper.", "Gerência de Projeto", "Téc. de Prog."],
+          ["-", "Sistemas Oper.", "Sistemas Oper.", "-", "Téc. de Prog."]
+        ];
+      
+        var tabelaDisponibilidade = document.getElementById("tabelaDisponibilidade");
+      
+        // Limpar a tabela antes de preencher com novos dados
+        tabelaDisponibilidade.innerHTML = "";
+      
+        // Preencher a tabela com horários e salas ocupadas
+        for (var i = 0; i < horarios.length; i++) {
+          var tr = document.createElement("tr");
+          var tdHorario = document.createElement("td");
+          tdHorario.textContent = horarios[i];
+          tr.appendChild(tdHorario);
+          for (var j = 0; j < salas.length; j++) {
+            var tdSala = document.createElement("td");
+            tdSala.textContent = ocupacao[i][j];
+            tr.appendChild(tdSala);
+          }
+          tabelaDisponibilidade.appendChild(tr);
+        }
+      }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alocação de Professor</title>
+  <link rel="stylesheet" href="../assets/static/css/style.css">
+</head>
+
+<body>
+  <header>   
+    <h1 style="margin-left: 115px ;">Site Coordenador</h1>
+    <nav>
+      <a href="../paginas/home.html"><button type="button">Início</button></a>
+      <a href="../paginas/alocar-professor.html"><button type="button">Alocar professor</button></a>
+      <a href="../paginas/consultar-professor.html"><button type="button">Consultar professor</button></a>
+      <a href="../paginas/consultar-disciplinas.html"><button type="button">Consultar disciplinas</button></a>
+      <a href="../paginas/consultar-salas.html"><button type="button">Consultar uso de sala</button></a>
+      <a href="../paginas/alocar-salas.html"><button type="button">Alocar sala de aula</button></a>
+    </nav>
+  </header>
+        <div class="container">
+            <h1>Alocar Professor para Disciplina</h1>
+            <div class="post-text-box" style="border: 0cap;">
+                <form id="alocacao-form">
+                  <label for="disciplina"><strong>Selecione a Disciplina:</strong></label>
+                  <select id="disciplina" name="disciplina">
+                    <option value="alg_geo">Álgebra Linear e Geometria Analítica BSI002</option>
+                    <option value="tec_programa">Técnicas de Programação BSI013</option>
+                    <option value="seg_info">Segurança da Informação BSI019</option>
+                    <option value="calculo">Cálculo I BSI009</option>
+                    <option value="adm_bd">Administração de Banco de Dados BSI012</option>
+                  </select>
+                  </div>
+                  <br>
+                </form>
+                <div>
+                  <h2>Lista de Professores:</h2>
+                  <br>
+                  <ul id="lista-professores">
+                    <li>
+                      <span>MARIA SILVA SANTOS</span>
+                      <span>| MATRÍCULA: 12345</span>
+                      <input type="checkbox" name="professor" value="MARIA SILVA SANTOS">
+                    </li>
+                    <li>
+                      <span>JOÃO OLIVEIRA SOUZA</span>
+                      <span> | MATRÍCULA: 67890</span>
+                      <input type="checkbox" name="professor" value="JOÃO OLIVEIRA SOUZA">
+                    </li>
+                    <li>
+                      <span>ANA PEREIRA LIMA</span>
+                      <span>| MATRÍCULA: 64382</span>
+                      <input type="checkbox" name="professor" value="ANA PEREIRA LIMA">
+                    </li>
+                    <li>
+                      <span>JULIANA FERREIRA OLIVEIRA</span>
+                      <span>| MATRÍCULA: 97542</span>
+                      <input type="checkbox" name="professor" value="JULIANA FERREIRA OLIVEIRA">
+                    </li>
+                    <li>
+                      <span>LUCAS RODRIGUES COSTA</span>
+                      <span>| MATRÍCULA: 12984</span>
+                      <input type="checkbox" name="professor" value="LUCAS RODRIGUES COSTA">
+                    </li>
+                  </ul>
+                  <input type="submit" value="Associar Professor">
+                </div>
+            </div>
+        <div>
+  <footer>
+    <a href="#">Contato</a>
+    <a href="#">FAQ</a>
+ </footer>
+</body>
+</html>
