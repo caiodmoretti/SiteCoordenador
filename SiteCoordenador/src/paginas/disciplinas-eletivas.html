@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação de Disciplinas Eletivas</title>
+  <link rel="stylesheet" href="../assets/static/css/style.css">
+</head>
+
+<body>
+  <header>   
+    <h1 style="margin-left: 115px;">Site Coordenador</h1>
+    <nav>
+      <a href="../paginas/home.html"><button type="button">Início</button></a>
+      <a href="../paginas/alocar-professor.html"><button type="button">Alocar professor</button></a>
+      <a href="../paginas/consultar-professor.html"><button type="button">Consultar professor</button></a>
+      <a href="../paginas/consultar-disciplinas.html"><button type="button">Consultar disciplinas</button></a>
+      <a href="../paginas/consultar-salas.html"><button type="button">Consultar uso de sala</button></a>
+      <a href="../paginas/alocar-salas.html"><button type="button">Alocar sala de aula</button></a>
+      <a href="../paginas/Solicitacoes_isencao.html"><button type="button">Solicitações de isenção</button></a>
+      <a href="../paginas/disciplinas-eletivas.html"><button type="button">Disciplinas eletivas</button></a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2 style="text-align: left;">Avaliação de Disciplinas Eletivas Solicitadas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Professor</th>
+          <th>Avaliação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Disciplina 1</td>
+          <td>Nome do Professor 1</td>
+          <td>
+            <select name="avaliacao_disciplina_1">
+              <option value="excelente">Excelente</option>
+              <option value="bom">Bom</option>
+              <option value="regular">Regular</option>
+              <option value="ruim">Ruim</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Disciplina 2</td>
+          <td>Nome do Professor 2</td>
+          <td>
+            <select name="avaliacao_disciplina_2">
+              <option value="excelente">Excelente</option>
+              <option value="bom">Bom</option>
+              <option value="regular">Regular</option>
+              <option value="ruim">Ruim</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+      </tbody>
+    </table>
+    <button type="submit">Enviar Avaliações</button>
+  </div>
+
+  <footer>
+    <a href="#">Contato</a>
+    <a href="#">FAQ</a>
+  </footer>
+</body>
+
+</html>
