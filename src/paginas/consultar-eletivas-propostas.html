@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avaliação de Disciplinas Eletivas</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="../assets/static/css/style.css">
+  <title>Site Coordenador</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../assets/static/css/style_eletivas.css">
 </head>
 
 <body>
@@ -14,7 +14,8 @@
     <div style="padding: 0.5%;">
       <h1 style="margin-left: 125px; display: inline-block; vertical-align: middle;">Site Coordenador</h1>
       <img src="../assets/images/iff_logo.png" style="float: right; vertical-align: middle; margin-right: 125px; width: 13%; border: 2px solid #2f9e41; border-radius: 10px;">
-    </div> 
+    </div>
+    
 
     <nav>
       <div>
@@ -46,51 +47,41 @@
     </nav>
     
   </header>
+
   <div class="container">
-    <h2 style="text-align: left;">Avaliação de Disciplinas Eletivas Enviadas</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Disciplina</th>
-          <th>Professor</th>
-          <th>Avaliação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Disciplina 1</td>
-          <td>Nome do Professor 1</td>
-          <td>
-            <select name="avaliacao_disciplina_1">
-              <option value="excelente">Excelente</option>
-              <option value="bom">Bom</option>
-              <option value="regular">Regular</option>
-              <option value="ruim">Ruim</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>Disciplina 2</td>
-          <td>Nome do Professor 2</td>
-          <td>
-            <select name="avaliacao_disciplina_2">
-              <option value="excelente">Excelente</option>
-              <option value="bom">Bom</option>
-              <option value="regular">Regular</option>
-              <option value="ruim">Ruim</option>
-            </select>
-          </td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-      </tbody>
-    </table>
-    <button type="submit">Enviar Avaliações</button>
+    <h1>Consultar Disciplinas</h1>
+    <form id="semesterForm">
+      <label for="semester">Selecione o Semestre:</label>
+      <select id="semester" onchange="showTable()">
+        <option value="">Selecione...</option>
+        <option value="2023.1">2023.1</option>
+        <option value="2023.2">2023.2</option>
+        <option value="2024.1">2024.1</option>
+      </select>
+    </form>
+
+    <div id="tableContainer" style="display: none;">
+      <table id="disciplinesTable">
+        <thead>
+          <tr>
+            <th>Nome do Professor</th>
+            <th>Nome da Disciplina</th>
+            <th>Avaliar</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <footer>
     <a href="#">Contato</a>
     <a href="#">FAQ</a>
   </footer>
+
+  <script src="../assets/static/js/eletivas_js.js"></script>
 </body>
 
 </html>
