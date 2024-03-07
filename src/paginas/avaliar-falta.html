@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliar Faltas</title>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../assets/static/css/style.css">
+
+  <style>
+    /* Estilo para os botões de ação */
+    .action-buttons {
+      display: flex; /* Define a exibição como flexível */
+      align-items: center; /* Alinha os itens verticalmente ao centro */
+      justify-content: center; /* Centraliza os itens horizontalmente */
+    }
+
+    .action-buttons button {
+      margin: 0 5px; /* Adiciona espaçamento horizontal entre os botões */
+      border: none; /* Remove as bordas dos botões */
+      cursor: pointer; /* Altera o cursor ao passar sobre os botões */
+      /* Estilo comum para os botões */
+      padding: 5px 10px; /* Adiciona preenchimento interno aos botões */
+      border-radius: 5px; /* Borda arredondada nos botões */
+      transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
+    }
+
+    /* Estilo para o botão "Aceitar" */
+    .action-buttons .accept-button {
+      background-color: #28a745; /* Verde */
+      color: #fff; /* Cor do texto dos botões */
+    }
+
+    /* Estilo para o botão "Recusar" */
+    .action-buttons .reject-button {
+      background-color: #dc3545; /* Vermelho */
+      color: #fff; /* Cor do texto dos botões */
+    }
+
+    .action-buttons button:hover {
+      text-decoration: underline; /* Adiciona sublinhado ao passar sobre os botões */
+      opacity: 0.8; /* Reduz a opacidade ao passar o mouse */
+    }
+  </style>
+
+  <script>
+    function confirmarAcao(acao) {
+      if (confirm("Tem certeza que deseja " + acao + " esta solicitação?")) {
+        // Se o usuário confirmar, a ação será executada
+        alert("Ação " + acao + " realizada com sucesso!");
+      } else {
+        // Se o usuário cancelar, nada será feito
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div style="padding: 0.5%;">
+      <h1 style="margin-left: 125px; display: inline-block; vertical-align: middle;">Site Coordenador</h1>
+      <img src="../assets/images/iff_logo.png" style="float: right; vertical-align: middle; margin-right: 125px; width: 13%; border: 2px solid #2f9e41; border-radius: 10px;">
+    </div>   
+
+    <nav>
+      <div>
+        <div class="button">
+          <a href="../paginas/home.html"><button class=""><i class="fas fa-home" aria-hidden="true" style="margin-right: 5px;"></i>Início </button></a>
+          <div class="dropdown-content">
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class=""><i class="fa fa-search" aria-hidden="true" style="margin-right: 5px;"></i>Consultar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+        <div class="dropdown-content">
+          <a href="../paginas/consultar-professor.html">Professor</a>
+          <a href="../paginas/consultar-disciplinas.html">Disciplinas</a>
+          <a href="../paginas/consultar-salas.html">Salas</a>
+          <a href="../paginas/consultar-frequencia-professor.html">Frequência</a>
+          <a href="../paginas/consultar-isencoes.html">Isenções</a>
+          <a href="../paginas/consultar-eletivas-propostas.html">Eletivas propostas</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class=""><i class="fas fa-edit" aria-hidden="true" style="margin-right: 5px;"></i>Alocar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+        <div class="dropdown-content">
+          <a href="../paginas/alocar-professor.html">Professor</a>
+          <a href="../paginas/alocar-salas.html">Salas</a>
+        </div>
+      </div>
+
+    </nav>
+    
+  </header>
+
+  <div class="container">
+    <h1>Avaliar Faltas</h1>
+    <table id="tabela_solicitacoes" class="display">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Dia da Falta</th>
+          <th>Justificativa</th>
+          <th>Comprovação</th>
+          <th>Ações</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MARIA SILVA SANTOS</td>
+          <td>27/02/2024</td>
+          <td>Falta por motivo de doença</td>
+          <td style="text-align: center;"><a href="../assets/images/atestado.jpg" target="_blank">Comprovante</a></td>
+          <td>
+            <div class="action-buttons">
+              <button class="accept-button" type="button" onclick="confirmarAcao('Aceitar')">Aceitar</button>
+              <button class="reject-button" type="button" onclick="confirmarAcao('Recusar')">Recusar</button>
+            </div>
+          </td>
+        </tr>
+        
+        
+      </tbody>
+    </table>
+  </div>
+  
+  <footer>
+    <a href="#">Contato</a>
+    <a href="#">FAQ</a>
+  </footer>
+</body>
+</html>

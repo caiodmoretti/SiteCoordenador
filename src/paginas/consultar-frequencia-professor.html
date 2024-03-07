@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Frequência de Professor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../assets/static/css/style.css">
+    <style>
+                * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+
+        body {
+           font-family: Arial, sans-serif;
+        }
+
+        header {
+           background-color: #004d40;
+           color: #fff;
+           padding: 25px;
+           
+        }
+
+        nav {
+           background-color: #004d40;
+           display: flex;
+           justify-content: space-between;
+           max-width: 350px; /* Definindo a largura máxima */
+
+        }
+
+        nav a {
+           color: #fff;
+           text-decoration: none;
+           padding: 0 10px;
+           padding: 10px 15px; /* Ajuste no padding */
+           margin: 0 2px; /* Ajuste na margem */
+        }
+
+        main {
+           display: flex;
+           justify-content: space-between;
+           margin: 100px;
+        }
+
+        body {
+           font-family: Helvetica, Arial, sans-serif; /* Mudando a fonte para Helvetica */
+        }
+        .row {
+           flex-basis: 50%;
+        }
+
+        .post-text-box {
+           border: 1px solid #ccc;
+           padding: 20px;
+           margin-bottom: 20px;
+        }
+
+        footer {
+           position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+            background-color: #004d40; 
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            height: 10%;
+        }
+
+        footer a {
+           color: #fff;
+           text-decoration: none;
+           margin: 0 10px;
+           
+        }
+
+        form {
+          margin: 0 auto;
+        }
+
+        label,
+        select {
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+
+        li {
+          border: 2px solid #ccc;
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+
+        button {
+          float: right;
+          font-size: 14px;
+        }
+
+        select {
+           border: 2px solid #ccc;
+           width: 300px; 
+           padding: 10px; 
+           font-size: 14px; 
+        }
+
+        input {
+           font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+              transform: scale(1.5); /* Aumenta o tamanho em 1.5 vezes */
+              margin-right: 10px; /* Adiciona um espaço entre as checkboxes */
+              float: right;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            position: relative; 
+        }
+        th:nth-child(1),
+        th:nth-child(7),
+        td:nth-child(1),
+        td:nth-child(7) {
+            background-color: #fff;
+        }   
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            cursor: pointer;
+            position: relative;
+            width: 14.28%
+            height: 100%;
+            text-align: center; 
+        }
+        .current-month {
+            background-color: #fff;
+        }
+        .other-month {
+            color: #ccc;
+        }
+        .selected-day {
+            background-color: #c1c1c1;
+        }
+        .absent {
+            background-color: #ffcccc; 
+        }
+        .present {
+            background-color: #ccffcc; 
+        }
+        .abonar-falta-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza horizontal e verticalmente */
+            display: none; 
+        }
+        td:hover .abonar-falta-btn {
+            display: block; 
+        }
+        .abonar-falta-form {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="padding: 0.5%;">
+            <h1 style="margin-left: 125px; display: inline-block; vertical-align: middle;">Site Coordenador</h1>
+            <img src="../assets/images/iff_logo.png" style="float: right; vertical-align: middle; margin-right: 125px; width: 13%; border: 2px solid #2f9e41; border-radius: 10px;">
+          </div> 
+    
+        <nav>
+          <div>
+            <div class="button">
+              <a href="../paginas/home.html"><button class=""><i class="fas fa-home" aria-hidden="true" style="margin-right: 5px;"></i>Início </button></a>
+              <div class="dropdown-content">
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class=""><i class="fa fa-search" aria-hidden="true" style="margin-right: 5px;"></i>Consultar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+            <div class="dropdown-content">
+              <a href="../paginas/consultar-professor.html">Professor</a>
+              <a href="../paginas/consultar-disciplinas.html">Disciplinas</a>
+              <a href="../paginas/consultar-salas.html">Salas</a>
+              <a href="../paginas/consultar-frequencia-professor.html">Frequência</a>
+              <a href="../paginas/consultar-isencoes.html">Isenções</a>
+              <a href="../paginas/consultar-eletivas-propostas.html">Eletivas propostas</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class=""><i class="fas fa-edit" aria-hidden="true" style="margin-right: 5px;"></i>Alocar <i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 5px;"></i></button>
+            <div class="dropdown-content">
+              <a href="../paginas/alocar-professor.html">Professor</a>
+              <a href="../paginas/alocar-salas.html">Salas</a>
+            </div>
+          </div>
+    
+        </nav>
+        
+      </header>
+<main>
+    <section id="professor-selection">
+        <label for="professor">Selecione o professor:</label>
+        <select id="professor">
+            <option value="12345">MARIA SILVA SANTOS</option>
+            <option value="67890">JOÃO OLIVEIRA SOUZA</option>
+            <option value="64382">ANA PEREIRA LIMA</option>
+            <option value="97542">JULIANA FERREIRA OLIVEIRA</option>
+            <option value="12984">LUCAS RODRIGUES COSTA</option>
+        </select>
+        <label for="mes">Mês:</label>
+        <select id="mes">
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+        </select>
+
+        <label for="ano">Ano:</label>
+        <select id="ano">
+            <option value="1">2024</option>
+            <option value="2">2023</option>
+            <option value="3">2022</option>
+            <option value="4">2021</option>
+            <option value="5">2020</option>
+            <option value="6">2019</option>
+            <option value="7">2018</option>
+            <option value="8">2017</option>
+            <option value="9">2016</option>
+        </select>
+        <button onclick="consultarFrequencia()">Consultar</button>
+    </section>
+    <section id="calendar" style="width: 70%; margin-top: 20px;">
+        <table>
+            <thead>
+            <tr>
+                <th>Domingo</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+            </tr>
+            </thead>
+            <tbody id="calendar-body">
+            </tbody>
+        </table>
+    </section>
+    <section id="abonar-falta" style="display: none;">
+        <div id="abonar-form" class="abonar-falta-form">
+            <h3>Justificar Falta</h3>
+            <form onsubmit="return justificarFalta()">
+                <label for="justificativa">Justificativa:</label><br>
+                <textarea id="justificativa" name="justificativa" rows="4" cols="50" required></textarea><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+</main>
+<footer>
+</footer>
+
+    <script>
+        const calendarBody = document.getElementById('calendar-body');
+        const calendarSection = document.getElementById('calendar');
+        let currentSelectedDay = null;
+
+        function createCalendar(year, month, faltas, presencas) {
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+            let html = '';
+
+            for (let i = 0; i < 6; i++) {
+                html += '<tr>';
+
+                for (let j = 0; j < 7; j++) {
+                    const dayIndex = i * 7 + j;
+                    const day = dayIndex - firstDayOfMonth + 1;
+
+                    let classNames = 'current-month';
+                    if (day <= 0 || day > daysInMonth) {
+                        html += '<td class="other-month"></td>';
+                    } else if (faltas.includes(day)) {
+                        classNames += ' absent';
+                        html += `<td class="${classNames}" onclick="selectDay(${day})">${day}<button class="abonar-falta-btn" onclick="showAbonarForm('${day}')">Abonar<br>Falta</button></td>`;
+                    } else if (presencas.includes(day)) {
+                        classNames += ' present';
+                        html += `<td class="${classNames}" onclick="selectDay(${day})">${day}</td>`;
+                    } else {
+                        html += `<td class="${classNames}" onclick="selectDay(${day})">${day}</td>`;
+                    }
+                }
+
+                html += '</tr>';
+            }
+
+            calendarBody.innerHTML = html;
+        }
+
+        function selectDay(day) {
+            const selectedDay = document.querySelector('.selected-day');
+            if (selectedDay) {
+                selectedDay.classList.remove('selected-day');
+            }
+            currentSelectedDay = day;
+            event.target.classList.add('selected-day');
+            console.log('Selected day:', day);
+        }
+
+        function consultarFrequencia() {
+            calendarSection.style.display = 'block';
+
+            const selectedProfessor = document.getElementById('professor').value;
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            if (selectedProfessor == "12345") {
+                const faltas = [5, 12, 19]; 
+                const presencas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+                createCalendar(year, month, faltas, presencas);
+            } else if (selectedProfessor == "67890") {
+                const faltas = [6, 18]; 
+                const presencas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+                createCalendar(year, month, faltas, presencas);
+            } else if (selectedProfessor == "64382") {
+                const faltas = [7, 8, 9]; 
+                const presencas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+                createCalendar(year, month, faltas, presencas);
+            } else if (selectedProfessor == "97542") {
+                const faltas = [1, 15, 25, 29]; 
+                const presencas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+                createCalendar(year, month, faltas, presencas);
+            } else if (selectedProfessor == "12984") {
+                const faltas = [4, 8, 25]; 
+                const presencas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+                createCalendar(year, month, faltas, presencas);
+            } 
+        }
+
+        function showAbonarForm(day) {
+    // Construa o URL da página de avaliação de falta
+    const url = "../paginas/avaliar-falta.html";
+
+    // Redirecione para a página de avaliação de falta
+    window.location.href = url;
+        }
+    </script>
+</body>
+</html>
